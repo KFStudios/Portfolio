@@ -48,7 +48,7 @@ var {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: courier;
+    font: inherit;
     vertical-align: baseline
 }
 
@@ -72,7 +72,7 @@ select {
 }
 
 body {
-    font: 16px courier;
+    font: 16px sans-serif;
     *font-size: small
 }
 
@@ -80,7 +80,7 @@ button,
 input,
 select,
 textarea {
-    font: 99% courier
+    font: 99% sans-serif
 }
 
 html {
@@ -158,8 +158,20 @@ textarea:invalid {
     box-shadow: 0 0 5px red
 }
 
+::-moz-selection {
+    background: #0a246a;
+    color: #fff;
+    text-shadow: none
+}
+
+::selection {
+    background: #0a246a;
+    color: #fff;
+    text-shadow: none
+}
+
 a:link {
-    -webkit-tap-highlight-color: #000000
+    -webkit-tap-highlight-color: #0a246a
 }
 
 button {
@@ -171,7 +183,7 @@ body,
 input,
 select,
 textarea {
-    color: #fff
+    color: #000
 }
 
 img {
@@ -230,6 +242,55 @@ a {
     box-sizing: border-box
 }
 
+@font-face {
+    font-family: Wasa;
+    font-weight: 500;
+    src: url(fonts/Wasa-Medium.otf) format("truetype")
+}
+
+@font-face {
+    font-family: Ogg;
+    font-weight: 500;
+    font-style: normal;
+    src: url(fonts/Ogg-Roman.otf) format("truetype")
+}
+
+@font-face {
+    font-family: Ogg;
+    font-weight: 500;
+    font-style: italic;
+    src: url(fonts/Ogg-Italic.otf) format("truetype")
+}
+
+.hero {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center
+}
+
+.hero__title {
+    opacity: 0;
+    display: block;
+    font-family: Ogg, sans-serif;
+    font-size: 18.229vw;
+    line-height: 1;
+    color: #e8911f;
+    text-align: center;
+    margin-top: -75px
+}
+
+@media (max-width:767px) {
+    .hero__title {
+        font-size: 180px
+    }
+}
+
 .hero__title-italic {
     font-style: italic
 }
@@ -243,13 +304,9 @@ a {
     z-index: 999
 }
 
-.hero {
-    color: rgb(0, 0, 0);
-}
-
 #interactive__homepage {
     pointer-events: none;
-    background-color: rgb(0, 0, 0);
+    background-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -259,8 +316,8 @@ a {
     left: 0
 }
 
-#interactive__text { 
-    display: none;
+#interactive__text {
+    display: none
 }
 
 .header {
@@ -272,7 +329,7 @@ a {
     -webkit-box-align: center;
     align-items: center;
     height: 42px;
-    font-family: courier;
+    font-family: Wasa, sans-serif;
     top: 0;
     left: 0;
     right: 0;
@@ -287,30 +344,43 @@ a {
     }
 }
 
+.header .church {
+    width: 26px;
+    height: 42px
+}
+
 .header a {
-    color: #000000;
+    color: #fdd904;
     font-size: 18px;
     display: -webkit-box;
     display: flex;
     text-transform: uppercase
 }
 
+.header a:hover img {
+    opacity: .6
+}
+
+.header a img {
+    margin-left: 16px
+}
+
 .footer {
-    position: center;
-    font-family: courier;
+    position: absolute;
+    font-family: Ogg, sans-serif;
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    font-family: courier;
-    color: #000000;
+    font-family: Wasa, sans-serif;
+    color: #fdd904;
     -webkit-box-align: center;
     align-items: center;
     z-index: 999;
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 5.708vw 9.583vw;
+    margin: 2.708vw 4.583vw;
     z-index: 1000
 }
 
@@ -319,11 +389,12 @@ a {
         margin: 40px;
         -webkit-box-pack: center;
         justify-content: center;
+        display: none
     }
 }
 
 .footer a {
-    color: #000000
+    color: #fdd904
 }
 
 .footer__credits {
@@ -353,8 +424,8 @@ a {
         align-items: center;
         -webkit-box-pack: center;
         justify-content: center;
-        font-family: courier;
-        color: #000000;
+        font-family: Wasa, sans-serif;
+        color: #fdd904;
         bottom: 60px;
         text-transform: uppercase;
         -webkit-animation: opacity 2.5s;
@@ -389,7 +460,7 @@ a {
     width: 100%;
     height: 100%;
     top: 0;
-    background: rgb(255, 255, 255);
+    background: #000;
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
@@ -404,8 +475,8 @@ a {
 
 .loading span {
     display: block;
-    font-family: courier;
-    color: #000000;
+    font-family: Wasa, sans-serif;
+    color: #e8911f;
     font-size: 1.354vw
 }
 
@@ -420,7 +491,7 @@ a {
     bottom: 6vh;
     width: 6vw;
     height: 2px;
-    background: rgb(255, 255, 255)
+    background: #fff
 }
 
 @media (max-width:767px) {
@@ -433,7 +504,7 @@ a {
     position: absolute;
     width: 0;
     height: 100%;
-    background: #000000
+    background: #e8911f
 }
 
 .konami {
@@ -499,7 +570,7 @@ a {
     appearance: none;
     width: 20%;
     height: 1px;
-    background: rgb(0, 0, 0);
+    background: #fff;
     outline: none;
     opacity: 1
 }
@@ -533,7 +604,7 @@ a {
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    font-family: courier;
+    font-family: Wasa, sans-serif;
     font-size: 24px;
     color: #000
 }
@@ -559,7 +630,7 @@ body {
     white-space: nowrap;
     font-size: 18.229vw;
     line-height: 1;
-    color: rgb(0, 0, 0);
+    color: #e8911f;
     text-align: center;
     display: -webkit-box;
     display: flex;
@@ -592,7 +663,7 @@ body {
     display: flex;
     width: 100%;
     height: 80px;
-    background: #000000;
+    background: #e8911f;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
@@ -601,7 +672,7 @@ body {
 
 .warning span {
     display: block;
-    font-family: courier;
+    font-family: Wasa, sans-serif;
     font-size: 16px
 }
 
@@ -616,7 +687,7 @@ section {
 
 .link {
     text-decoration: none;
-    color: black;
+    color: transparent;
     position: relative
 }
 
@@ -627,7 +698,7 @@ section {
     position: absolute;
     left: 0;
     top: 0;
-    color: #000000;
+    color: #fdd904;
     pointer-events: none;
     -webkit-transition: opacity .7s cubic-bezier(.23, 1, .32, 1), -webkit-transform .7s cubic-bezier(.23, 1, .32, 1);
     transition: opacity .7s cubic-bezier(.23, 1, .32, 1), -webkit-transform .7s cubic-bezier(.23, 1, .32, 1);
@@ -726,7 +797,7 @@ var {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: courier;
+    font: inherit;
     vertical-align: baseline
 }
 
